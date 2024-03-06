@@ -1,0 +1,105 @@
+
+
+.img-main {
+    width: 100%; /* Start with the image larger than the screen */
+    height: auto; /* Maintain aspect ratio */
+    animation: scaleDown 2s forwards; /* Add a scaleDown animation with a duration of 2s */
+}
+
+@keyframes scaleDown {
+    from {
+        transform: scale(1.5); /* Start with the image at 150% size */
+    }
+    to {
+        transform: scale(1); /* Shrink the image back to normal size */
+    }
+}
+
+.container-all-products-list{
+    margin-top: 20vh;
+}
+.all-img-home{
+margin-top: 20vh;
+}
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+  }
+  
+  /* Bottom left text */
+  .livingRoom {
+    position: absolute;
+    bottom: 50%;
+    left: 800px;
+  }
+  
+  /* Top left text */
+  .kitchen {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  
+  /* Top right text */
+  .top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+  
+  /* Bottom right text */
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+  
+  /* Centered text */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+  .table-img{
+    grid-area: table1;
+    width: 5vw;
+  }
+  .design-img{
+    grid-area: design;
+    width: 10vw;
+  }
+  .dishes-img{
+    grid-area: dishes;
+    width: 5vw;
+  }
+  .kitchen-img{
+    grid-area: kitchen;
+    width: 5vw;
+  }
+  .livingRoom-img{
+    grid-area: livingRoom;
+    width: 5vw;
+  }
+
+  .all-img-home {
+    display: grid;
+    grid-template-areas:
+      'design design design table1  '
+      'kitchen livingRoom dishes table1  '
+      ;
+     margin-top: 15vh;
+
+
+
+  }
+  .all-img-home img{
+    width: 250px;
+    
+  }

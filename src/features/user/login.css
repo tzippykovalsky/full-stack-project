@@ -1,0 +1,36 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+.google-button {
+    background-color:  #ffffff ;
+    color: #000000;
+    border: 1px solid #000000;
+    font-size: 1.2em;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    margin-bottom: 17px;
+    height: 50px;
+}
+.google-icon {
+    width: 1.8vw;
+    margin-right: 25px;
+}
+
+
+ 

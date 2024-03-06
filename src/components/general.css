@@ -1,0 +1,46 @@
+.base-hover-button {
+    padding: 14px 24px;
+    background: linear-gradient(to left, #000000 50%, #ffffff 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: rgb(255, 255, 255); /* Initial text color */
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s;
+    width: 300px;
+    box-shadow: 0 0 0 1.2px rgb(0, 0, 0); /* Black frame around the button */
+    height: 50px;
+
+}
+
+
+.more-hover-button{
+    width: 478px;
+}
+
+
+
+.base-hover-button:hover {
+    background-position: left bottom;
+    color: rgb(0, 0, 0); /* Text color on hover */
+}
+
+.form-h2 {
+    font-size: 1.5em;
+    color:  #181818; /* Change the color to the one you prefer, such as a light gray */
+    font-weight: normal;
+}
+
+.form-h4 {
+    font-size: 1em;
+    color: #181818; /* Change the color to the one you prefer, such as a light gray */
+    font-weight: normal;
+}
+.signup-link{
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    list-style-type: none;
+}
