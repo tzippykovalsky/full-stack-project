@@ -4,8 +4,8 @@
 
 התמונות לא עולות לגיטהב ורנדר מתקשר לגיטהב 
 
-bug sign with googel צריך להרשם לפעמים פעמים לבדוק למה
-
+bug1 sign with googel צריך להרשם לפעמים פעמים לבדוק למה
+bug2- an error in getting pages from server, new bug check why
 logout- צריך לרוקן גם את הסל?
 
 ***********
