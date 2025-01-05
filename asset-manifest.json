@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.41e4af19.css",
-    "main.js": "/static/js/main.ac83a87d.js",
-    "static/js/592.433bf374.chunk.js": "/static/js/592.433bf374.chunk.js",
-    "static/media/העיצובים שלנו.jpg": "/static/media/העיצובים שלנו.e3a17ce4d3f3550dca08.jpg",
-    "static/media/סלון ואוירה.jpg": "/static/media/סלון ואוירה.8e9f7579d57b865e435d.jpg",
-    "static/media/Inter-italic.var.woff2?v=3.19": "/static/media/Inter-italic.var.30807be7abc48ba8c73c.woff2",
-    "static/media/Inter-roman.var.woff2?v=3.19": "/static/media/Inter-roman.var.ba4caefcdf5b36b438db.woff2",
-    "static/media/שולחן ואירוח.jpg": "/static/media/שולחן ואירוח.3a278ffd9838111a4eb6.jpg",
-    "static/media/מטבח.jpg": "/static/media/מטבח.49da7018f14b88e2d404.jpg",
-    "static/media/כלים.jpg": "/static/media/כלים.99d6853930ecae33bfee.jpg",
-    "index.html": "/index.html",
-    "main.41e4af19.css.map": "/static/css/main.41e4af19.css.map",
-    "main.ac83a87d.js.map": "/static/js/main.ac83a87d.js.map",
-    "592.433bf374.chunk.js.map": "/static/js/592.433bf374.chunk.js.map"
+    "main.css": "/full-stack-project/static/css/main.8b5fef5a.css",
+    "main.js": "/full-stack-project/static/js/main.f77d3435.js",
+    "static/js/592.433bf374.chunk.js": "/full-stack-project/static/js/592.433bf374.chunk.js",
+    "static/media/העיצובים שלנו.jpg": "/full-stack-project/static/media/העיצובים שלנו.e3a17ce4d3f3550dca08.jpg",
+    "static/media/סלון ואוירה.jpg": "/full-stack-project/static/media/סלון ואוירה.8e9f7579d57b865e435d.jpg",
+    "static/media/Inter-italic.var.woff2?v=3.19": "/full-stack-project/static/media/Inter-italic.var.30807be7abc48ba8c73c.woff2",
+    "static/media/Inter-roman.var.woff2?v=3.19": "/full-stack-project/static/media/Inter-roman.var.ba4caefcdf5b36b438db.woff2",
+    "static/media/שולחן ואירוח.jpg": "/full-stack-project/static/media/שולחן ואירוח.3a278ffd9838111a4eb6.jpg",
+    "static/media/מטבח.jpg": "/full-stack-project/static/media/מטבח.49da7018f14b88e2d404.jpg",
+    "static/media/כלים.jpg": "/full-stack-project/static/media/כלים.99d6853930ecae33bfee.jpg",
+    "index.html": "/full-stack-project/index.html",
+    "main.8b5fef5a.css.map": "/full-stack-project/static/css/main.8b5fef5a.css.map",
+    "main.f77d3435.js.map": "/full-stack-project/static/js/main.f77d3435.js.map",
+    "592.433bf374.chunk.js.map": "/full-stack-project/static/js/592.433bf374.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.41e4af19.css",
-    "static/js/main.ac83a87d.js"
+    "static/css/main.8b5fef5a.css",
+    "static/js/main.f77d3435.js"
   ]
 }
