@@ -15,7 +15,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
-    "dayjs": "^1.11.13",
     "dotenv": "16.3.1",
     "primeflex": "^3.3.1",
     "primereact": "^10.1.1",
