@@ -8,10 +8,11 @@ import { useDispatch } from 'react-redux';
 import { loginState } from './userSlice';
 import CustomTextField from '../../components/CustomTextField';
 import LoginGoogle from './LoginGoogle';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
-  const [showAlert, setShowAlert] = useState(false);
+  // const [showAlert, setShowAlert] = useState(false);
   let dispatch = useDispatch();
 
 
@@ -37,12 +38,16 @@ const SignUp = () => {
       console.log(data);
       dispatch(loginState(res.data))
       await sendMailToServer({ to: `${data.email}`, subject: "שמחים על הצטרפותך לאתר", text: `${data.userName} תודה שיצרת חשבון באתר שלנו` })
-      setShowAlert(true);
 
-        setTimeout(() => {
-            setShowAlert(false);
+      Swal.fire({
+              icon: 'success', title: 'נרשמת בהצלחה', showConfirmButton: false, timer: 1500
+            })
+      // setShowAlert(true);
 
-        }, 2000);
+      //   setTimeout(() => {
+      //       setShowAlert(false);
+
+      //   }, 2000);
   
     } catch (err) {
       console.log(errors);
@@ -53,11 +58,11 @@ const SignUp = () => {
   return (
     <>
 
-      <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
+      {/* <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
         <Alert severity="success" style={{ width: '20%', margin: '0 auto', textAlign: 'center',marginTop:"13vh" }}>
           <AlertTitle>נרשמת בהצלחה</AlertTitle>
         </Alert>
-      </Slide>
+      </Slide> */}
       <div className="login-form">
         <h2 className='form-h2' style={{ marginTop: "20vh" }}>הרשמה</h2>
 

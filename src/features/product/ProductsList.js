@@ -65,8 +65,8 @@ const ProductsList = () => {
             console.log(location.state || "ללא");
             let res = await getAllProductsFromServer(currentPage, search, location.state || "ללא");
 
-            setArr(res.data);
-            console.log(res.data);
+            setArr(res?.data);
+            console.log(res?.data);
         }
         catch (err) {
             console.log(err);
@@ -85,8 +85,9 @@ const ProductsList = () => {
 
     useEffect(() => {
 
-        fetchNumPages();//????????????????איפה להפעיל אותו 
+       //????????????????איפה להפעיל אותו 
         getProductToArr();
+        fetchNumPages();
     }, [search, currentPage, location.state, refreshFlag])
 
     useEffect(() => {
