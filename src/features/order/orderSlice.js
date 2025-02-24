@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { logoutState } from "../user/userSlice";
 
 
 let initialState = {
@@ -22,7 +23,7 @@ const orderSlice = createSlice({
             } else {
                 state.ordersArr.push(action.payload);
             }
-           
+
             localStorage.setItem("myCart", JSON.stringify(state.ordersArr));
         },
 
@@ -34,9 +35,19 @@ const orderSlice = createSlice({
             state.ordersArr.splice(index, 1);
             if (state.ordersArr.length > 1)
                 localStorage.setItem("myCart", JSON.stringify(state.ordersArr));
-            else  localStorage.removeItem("myCart");
+            else localStorage.removeItem("myCart");
         },
-    }
+
+    },
+    /**
+     * when logout, clear the ordersArr and remove the myCart from the local storage
+     */
+    extraReducers: (builder) => {
+        builder.addCase(logoutState, (state) => {
+            state.ordersArr = []; // איפוס ההזמנות בעת יציאה
+            localStorage.removeItem('myCart')
+        });
+    },
 })
 
 export const { addProductToOrderInState, deleteProductFromOrderInState, addArrProductToState } = orderSlice.actions;

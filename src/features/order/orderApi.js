@@ -26,9 +26,12 @@ export const addOrderToServer = (order, token) => {
     })
 }
  
-
-export const updateOrderInServer = (id, token) => {
-    return axios.put(`${baseUrl}/api/orders/${id}`, {
-        headers: { "access-token": token },
-    })
-}
+export const updateOrderInServer = (id, token) => {    
+    return axios.put(
+        `${baseUrl}/api/orders/${id}`,
+        {}, // גוף הבקשה ריק (או אפשר לשים כאן מידע אם צריך)
+        {
+            headers: { "access-token": token }, // זה המקום הנכון להדרס
+        }
+    );
+};

@@ -13,6 +13,7 @@ import CustomTextField from '../../components/CustomTextField';
 import { useNavigate } from 'react-router-dom';
 import LoginGoogle from './LoginGoogle';
 import { AlertTitle, Alert, Slide } from '@mui/material';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -28,7 +29,7 @@ const Login = () => {
 
 
   const [showPassword, setShowPassword] = React.useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+  // const [showAlert, setShowAlert] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -48,11 +49,13 @@ const Login = () => {
       let res = await signInUserToServer(data)
       dispatch(loginState(res.data))
 
-
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 2000);
+      Swal.fire({
+        icon: 'success', title: 'התחברת בהצלחה', showConfirmButton: false, timer: 1500
+      })
+      // setShowAlert(true);
+      // setTimeout(() => {
+      //   setShowAlert(false);
+      // }, 2000);
     }
     catch (err) {
 
@@ -64,12 +67,12 @@ const Login = () => {
   }
   return (
     <>
-
+{/* 
       <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
-        <Alert severity="success" style={{ width: '20%', margin: '0 auto', textAlign: 'center',marginTop:"13vh" }}>
+        <Alert severity="success" style={{ width: '20%', margin: '0 auto', textAlign: 'center', marginTop: "13vh" }}>
           <AlertTitle> התחברת בהצלחה</AlertTitle>
         </Alert>
-      </Slide>
+      </Slide> */}
       <div className="login-form">
         <h2 className='form-h2' style={{ marginTop: "26vh" }}>כניסה</h2>
         <h4 className='form-h4'>הזן את כתובת הדוא"ל והסיסמה לכניסה</h4>
