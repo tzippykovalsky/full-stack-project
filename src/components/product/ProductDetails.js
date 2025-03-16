@@ -1,38 +1,51 @@
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import { useParams, useNavigate } from "react-router-dom";
+import { Button, IconButton, Box, Drawer, Divider, CircularProgress } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import IconButton from '@mui/material/IconButton';
 import { useDispatch } from "react-redux";
 import { addProductToOrderInState } from "../../features/orderSlice";
 import "../../styles/productDetails.css";
 import baseUrl from "../../config";
 import useQty from "../../hooks/useQty";
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Divider from '@mui/material/Divider';
-import "primereact/resources/themes/lara-light-cyan/theme.css";
 import MinCart from "../cart/MinCart";
-
+import { getProductByIdFromServer } from "../../services/productApi";
 
 const ProductDetails = () => {
-
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
-    let location = useLocation();
-    let { name, price, imgUrl, color, size, inSale, category, description } = location?.state;
-    let dispatch = useDispatch();
-    let { qty, removeQty, addQty } = useQty()
+    const { item } = useParams();
+    const [product, setProduct] = React.useState(null);
+    const [loading, setLoading] = React.useState(true);  // מצב טעינה
+    const dispatch = useDispatch();
+    const { qty, removeQty, addQty } = useQty();
 
+    //על מנת שיוכלו לשלוח קישורים הורדתי את התלות בלוקיישן
+    //     let location = useLocation();
+    //     let { name, price, imgUrl, color, size, inSale, category, description } = location?.state;
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
-        if (newOpen == true) {
-            handleAddProductToOrder()
+        if (newOpen) {
+            handleAddProductToOrder();
         }
-
     };
+
+    const getItemById = async () => {
+        try {
+            const response = await getProductByIdFromServer(item);
+            setProduct(response.data);
+        } catch (ex) {
+            console.error(ex);
+        }
+        finally {
+            setLoading(false);
+        }
+    };
+
+    React.useEffect(() => {
+        getItemById();
+    }, [item]);
 
     const DrawerList = (
         <Box sx={{ width: 450 }} role="presentation" onClick={toggleDrawer(false)}>
@@ -41,62 +54,74 @@ const ProductDetails = () => {
         </Box>
     );
 
-
     const handleGoBack = () => {
         navigate(-1);
     };
 
-
     const handleAddProductToOrder = () => {
-        let { _id, name, price, imgUrl, inSale } = location.state
-        console.log(location.state);
-        const updatedItemData = { ...{ productCode: _id, name, price, imgUrl }, quantity: qty };
-        dispatch(addProductToOrderInState(updatedItemData));
-    }
+        if (product) {
+            const updatedItemData = {
+                productCode: product._id,
+                name: product.name,
+                price: product.price,
+                imgUrl: product.imgUrl,
+                quantity: qty
+            };
+            dispatch(addProductToOrderInState(updatedItemData));
+        }
+    };
 
-    return (<>
-
+    return (
         <div className="div-details">
-
-
-            <div className="div-img-product">
-                <img className="img-product" src={`${baseUrl}/${imgUrl}`} />
-            </div>
-
-            <div className="div-details-wide">
-                <h1 className="name-prod-h1">{name}</h1>
-                <Divider />
-                <h2 className="price-h2">  {price} ₪</h2>
-                <div className="div-description">{description && <div>{description}</div>}</div>
-                {/* {size && (<div>מידה: {size}</div>)}
-                {color && (<div>צבע: {color} </div>)}              
-                {category && (<div>{category}</div>)} */}
-
-                <Drawer open={open} onClose={toggleDrawer(false)}>
-                    {DrawerList}
-                </Drawer>
-                <div className="div-qty-addCart">
-                    <div className="qty-product">
-                        <IconButton onClick={addQty}><AddIcon sx={{ width: 20 }} /> </IconButton>
-                        {qty}
-                        <IconButton onClick={removeQty}><RemoveIcon sx={{ width: 20 }} /></IconButton>
-                    </div>
-                    <Button onClick={toggleDrawer(true)} className="btn"
-                        sx={{
-                            flex: 2,
-
-                            backgroundColor: 'rgba(156, 136, 110)'
-                            , color: "white", borderRadius: "0px",
-                            '&:hover': {
-                                backgroundColor: 'rgba(180, 164, 144)'
-                            }
-                        }}
-                    >הוספה לסל</Button>
+            {loading ? (
+                <div className="loading-container">
+                    <CircularProgress />
+                    <p>טעינה...</p>
                 </div>
-                <button className="base-hover-button" onClick={handleGoBack}>חזרה לחנות</button>
-            </div>
+            ) : (
+                <>
+                    <div className="div-img-product">
+                        <img className="img-product" src={`${baseUrl}/${product.imgUrl}`} alt={product.name} />
+                    </div>
+
+                    <div className="div-details-wide">
+                        <h1 className="name-prod-h1">{product.name}</h1>
+                        <Divider />
+                        <h2 className="price-h2">{product.price} ₪</h2>
+                        <div className="div-description">{product.description}</div>
+
+                        <Drawer open={open} onClose={toggleDrawer(false)}>
+                            {DrawerList}
+                        </Drawer>
+
+                        <div className="div-qty-addCart">
+                            <div className="qty-product">
+                                <IconButton onClick={addQty}><AddIcon sx={{ width: 20 }} /></IconButton>
+                                {qty}
+                                <IconButton onClick={removeQty}><RemoveIcon sx={{ width: 20 }} /></IconButton>
+                            </div>
+                            <Button
+                                onClick={toggleDrawer(true)}
+                                className="btn"
+                                sx={{
+                                    flex: 2,
+                                    backgroundColor: 'rgba(156, 136, 110)',
+                                    color: "white",
+                                    borderRadius: "0px",
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(180, 164, 144)'
+                                    }
+                                }}
+                            >
+                                הוספה לסל
+                            </Button>
+                        </div>
+                        <button className="base-hover-button" onClick={handleGoBack}>חזרה לחנות</button>
+                    </div>
+                </>
+            )}
         </div>
-    </>);
-}
+    );
+};
 
 export default ProductDetails;

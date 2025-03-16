@@ -1,10 +1,13 @@
 import { Button, Divider, IconButton } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { addProductToOrderInState, deleteProductFromOrderInState } from "../../features/orderSlice";
-import baseUrl from "../../config";
-import { useState } from "react";
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+
+import { addProductToOrderInState, deleteProductFromOrderInState } from "../../features/orderSlice";
+import baseUrl from "../../config";
+
+
 
 const CartItem = ({ oneOrder }) => {
 

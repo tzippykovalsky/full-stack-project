@@ -79,7 +79,7 @@ const ListItem = ({ oneProduct, onProductDelete }) => {
     return (
         <>
             <div className="product-item" onMouseLeave={handleMouseLeave}>
-                <Link to={`/all-products/details/${oneProduct.name}`} state={oneProduct}>
+                <Link to={`/all-products/details/${oneProduct._id}`} state={oneProduct}>
                     <div className="product-image">
                         {showAdditionalImage && oneProduct.imgUrl2 ? (
                             <img src={`${baseUrl}/${oneProduct.imgUrl2}`} alt={oneProduct.name} />
