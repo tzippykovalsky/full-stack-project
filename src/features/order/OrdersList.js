@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getAllOrdersFromServer, updateOrderInServer } from "./orderApi";
 import { useSelector } from "react-redux";
 import * as React from 'react';
 import { Box, Paper, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, CircularProgress } from "@mui/material";
 import Swal from "sweetalert2";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'; 
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty'; 
+import { updateOrderInServer ,getAllOrdersFromServer} from "../../services/orderApi";
 
 const OrdersList = () => {
     const [ordersArr, setOrdersArr] = useState([]);

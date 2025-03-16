@@ -1,5 +1,5 @@
 import axios from "axios";
-import baseUrl from "../../config";
+import baseUrl from "../config";
 
 
 export const addUserToServer = (user) => {
