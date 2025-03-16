@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { TextField, Box, FormControl, InputLabel, MenuItem, Select, FormControlLabel, Checkbox, Button, AlertTitle, Alert, Slide } from '@mui/material';
-import { addProductToServer } from './productApi';
+import { addProductToServer } from '../../services/productApi';
 import { useSelector } from 'react-redux';
 import CustomTextField from '../../components/CustomTextField';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import Swal from 'sweetalert2';
 
 
 let validationSchema = yup.object().shape({
@@ -32,7 +33,7 @@ const AddProductToSite = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit,reset, formState: { errors } } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
@@ -44,10 +45,11 @@ const AddProductToSite = () => {
       // alert(selectedFile.name)
       let res = await addProductToServer(data, currentUser.token)
       console.log(res);
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 2000);
+
+       Swal.fire({
+                      icon: 'success', title: 'המוצר נוסף בהצלחה!', showConfirmButton: false, timer: 1500
+                  });
+      reset();
     }
     catch (err) {
       console.log(errors);
@@ -66,11 +68,6 @@ const AddProductToSite = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} style={{ marginTop: "12vh" }}>
-        <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
-          <Alert severity="success" style={{ width: '50%', margin: '0 auto', textAlign: 'center' }}>
-            <AlertTitle>  המוצר נוסף בהצלחה</AlertTitle>
-          </Alert>
-        </Slide>
         <div className="login-form">
           <h2 className='form-h2'>הוספת מוצר לאתר</h2>
 
@@ -164,17 +161,3 @@ const AddProductToSite = () => {
 };
 
 export default AddProductToSite;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

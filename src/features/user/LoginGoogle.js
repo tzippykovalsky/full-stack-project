@@ -4,7 +4,7 @@ import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { loginState } from './userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMailToServer, signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from './userApi';
+import { sendMailToServer, signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../../services/userApi';
 import { AlertTitle, Alert, Slide } from '@mui/material';
 import google from '../../googleIcon.png';
 import Swal from 'sweetalert2';

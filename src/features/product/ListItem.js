@@ -7,7 +7,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { deleteProductFromServer } from "./productApi";
 import "./listItem.css"
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
@@ -21,6 +20,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import MinCart from "../order/MinCart";
+import { deleteProductFromServer } from '../../services/productApi';
 
 
 

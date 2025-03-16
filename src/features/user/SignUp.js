@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { addUserToServer, sendMailToServer } from './userApi';
+import { addUserToServer, sendMailToServer } from '../../services/userApi';
 import { Alert, AlertTitle, Slide, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { loginState } from './userSlice';
