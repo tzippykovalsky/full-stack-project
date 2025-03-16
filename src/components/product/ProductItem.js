@@ -1,25 +1,15 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./listItem.css"
-import DeleteIcon from '@mui/icons-material/Delete';
-import { IconButton } from "@mui/material";
 import { useDispatch, useSelector } from 'react-redux';
-import baseUrl from '../../config';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, Box, Drawer, Divider } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import { addProductToOrderInState } from '../order/orderSlice';
-import { Alarm } from '@mui/icons-material';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import MinCart from "../order/MinCart";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import "../../styles/productItem.css";
+import baseUrl from '../../config';
+import { addProductToOrderInState } from '../../features/orderSlice';
+import MinCart from "../cart/MinCart";
 import { deleteProductFromServer } from '../../services/productApi';
 
 

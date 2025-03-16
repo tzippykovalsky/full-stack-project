@@ -2,17 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
-import { loginState } from './userSlice';
+import { loginState } from '../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMailToServer, signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../../services/userApi';
+import { sendMailToServer, signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../services/userApi';
 import { AlertTitle, Alert, Slide } from '@mui/material';
-import google from '../../googleIcon.png';
+import google from '../googleIcon.png';
 import Swal from 'sweetalert2';
 
 function LoginGoogle({ flag }) {
     const [user, setUser] = useState([]);
     const [profile, setProfile] = useState([]);
-    // const [showAlert, setShowAlert] = useState(false);
     let currentUser = useSelector((state) => state.user.currentUser)
     let dispatch = useDispatch();
 
@@ -71,10 +70,6 @@ function LoginGoogle({ flag }) {
             Swal.fire({
                 icon: 'success', title: 'התחברת עם גוגל בהצלחה', showConfirmButton: false, timer: 1500
               })
-            // setShowAlert(true);
-            // setTimeout(() => {
-            //     setShowAlert(false);
-            // }, 2000);
             if (flag == 'signUp')
                 await sendMailToServer({ to: `${profile.email}`, subject: "שמחים על הצטרפותך לאתר", text: `${profile.name} תודה שיצרת חשבון באתר שלנו` })
 
@@ -101,11 +96,6 @@ function LoginGoogle({ flag }) {
             {/* </div> */}
             {/* // ) : ( */}
 
-            {/* <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
-                <Alert severity="success" style={{ width: '20%', margin: '0 auto', textAlign: 'center'}}>
-                    <AlertTitle>החברת עם גוגל בהצלחה</AlertTitle>
-                </Alert>
-            </Slide> */}
             <div >
                 <button onClick={login} className='google-button'>
                     {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO0u4dr5oCgDbhigc4GH5o4PMEZGwVaHabRg&usqp=CAU' className='google-icon' /> */}

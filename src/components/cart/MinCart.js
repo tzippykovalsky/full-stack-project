@@ -4,9 +4,9 @@ import { DialogContentText, IconButton, Typography, Dialog, DialogActions, Dialo
 import CloseIcon from '@mui/icons-material/Close';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import "./minCart.css"
+import "../../styles/minCart.css";
 import MinCartItem from './MinCartItem';
-import Delivery from '../../components/Delivey';
+import Delivery from '../Delivey';
 
 
 

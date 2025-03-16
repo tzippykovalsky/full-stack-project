@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { logoutState } from "../user/userSlice";
+import { logoutState } from "./userSlice";
 
 
 let initialState = {

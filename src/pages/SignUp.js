@@ -2,12 +2,12 @@ import * as yup from 'yup';
 import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { addUserToServer, sendMailToServer } from '../../services/userApi';
+import { addUserToServer, sendMailToServer } from '../services/userApi';
 import { Alert, AlertTitle, Slide, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { loginState } from './userSlice';
-import CustomTextField from '../../components/CustomTextField';
-import LoginGoogle from './LoginGoogle';
+import { loginState } from '../features/userSlice';
+import CustomTextField from '../components/CustomTextField';
+import LoginGoogle from '../components/LoginGoogle';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
@@ -57,12 +57,6 @@ const SignUp = () => {
 
   return (
     <>
-
-      {/* <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
-        <Alert severity="success" style={{ width: '20%', margin: '0 auto', textAlign: 'center',marginTop:"13vh" }}>
-          <AlertTitle>נרשמת בהצלחה</AlertTitle>
-        </Alert>
-      </Slide> */}
       <div className="login-form">
         <h2 className='form-h2' style={{ marginTop: "20vh" }}>הרשמה</h2>
 

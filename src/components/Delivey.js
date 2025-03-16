@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTotalSum } from "../calcOnArr";
+import { getTotalSum } from "../utils/calcOnArr";
 import { Box, Slider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';

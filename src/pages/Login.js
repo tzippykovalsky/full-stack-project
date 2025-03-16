@@ -1,18 +1,17 @@
 
 import * as yup from 'yup';
 import React, { useEffect, useState } from 'react';
-import './login.css';
+import '../styles/login.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { sendMailToServer, signInUserToServer } from '../../services/userApi';
+import { sendMailToServer, signInUserToServer } from '../services/userApi';
 import { FilledInput, FormControl, IconButton, InputAdornment, InputLabel, Link, OutlinedInput, TextField, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { loginState } from './userSlice';
+import { loginState } from '../features/userSlice';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import CustomTextField from '../../components/CustomTextField';
+import CustomTextField from '../components/CustomTextField';
 import { useNavigate } from 'react-router-dom';
-import LoginGoogle from './LoginGoogle';
-import { AlertTitle, Alert, Slide } from '@mui/material';
+import LoginGoogle from '../components/LoginGoogle';
 import Swal from 'sweetalert2';
 
 const Login = () => {

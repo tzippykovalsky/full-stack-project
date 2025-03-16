@@ -1,6 +1,6 @@
 import { Button, Divider, IconButton } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToOrderInState, deleteProductFromOrderInState } from "./orderSlice";
+import { addProductToOrderInState, deleteProductFromOrderInState } from "../../features/orderSlice";
 import baseUrl from "../../config";
 import { useState } from "react";
 import RemoveIcon from '@mui/icons-material/Remove';

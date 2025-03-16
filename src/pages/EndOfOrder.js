@@ -7,10 +7,10 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginState } from '../user/userSlice';
-import CustomTextField from '../../components/CustomTextField';
-import { addOrderToServer } from "../../services/orderApi";
-import { sendMailToServer } from '../../services/userApi';
+import { loginState } from '../features/userSlice';
+import CustomTextField from '../components/CustomTextField';
+import { addOrderToServer } from "../services/orderApi";
+import { sendMailToServer } from '../services/userApi';
 
 const EndOfOrder = () => {
 

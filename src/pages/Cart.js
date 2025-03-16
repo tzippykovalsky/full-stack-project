@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import "./Cart.css";
+import "../styles/cart.css";
 import { useNavigate } from "react-router-dom";
-import CartItem from "./CartItem";
-import { getTotalQuantity, getTotalSum } from "../../calcOnArr";
 import { Divider } from "@mui/material";
-import BlessingComponent from "../../components/BlessingComponent";
+import BlessingComponent from "../components/BlessingComponent";
+import CartItem from "../components/cart/CartItem";
+import { getTotalSum,getTotalQuantity } from "../utils/calcOnArr";
 
 const Cart = () => {
   let navigate = useNavigate();

@@ -24,13 +24,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import './Navbar.css';
-import Login from '../../features/user/Login';
+import Login from '../../pages/Login';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutState } from '../../features/user/userSlice';
+import { logoutState } from '../../features/userSlice';
 import NavBarAdmin from './NavBarAdmin';
 import NavBarUser from './NavBarUser';
 import LoginIcon from '@mui/icons-material/Login';
-import { saveCurrentPageOnSiteToState } from '../../features/product/productSlice';
+import { saveCurrentPageOnSiteToState } from '../../features/productSlice';
 const Navbar = () => {
 
 

@@ -1,29 +1,28 @@
 import './App.css';
-import ProductsList from './features/product/ProductsList';
+import ProductsList from './pages/ProductsList';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/navBar/Navbar';
 
-import "./components/general.css"
-import Cart from './features/order/Cart';
-import SignUp from './features/user/SignUp';
-import Login from './features/user/Login';
+import "./styles/general.css"
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { loginState } from './features/user/userSlice';
-import OrdersList from './features/order/OrdersList';
-import EndOfOrder from './features/order/EndOfOrder';
-import { addArrProductToState } from './features/order/orderSlice';
-import { saveCurrentPageOnSiteToState } from './features/product/productSlice';
+import { loginState } from './features/userSlice';
+import OrdersList from './pages/OrdersList';
+import EndOfOrder from './pages/EndOfOrder';
+import { addArrProductToState } from './features/orderSlice';
+import { saveCurrentPageOnSiteToState } from './features/productSlice';
 import useLocalStorageToRedux from './hooks/useLocalStorageToRedux';
 import ProtectedRoute from './components/ProtectedRoute';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-import ProductDetails from './features/product/ProductDetails';
+import ProductDetails from './components/product/ProductDetails';
 import ChatCopmonent from './components/ChatCopmonent';
-import AddProductToSite from './features/product/AddProductToSite';
-import Home from './components/Home';
-import Footer from './components/Footer';
+import AddProductToSite from './pages/AddProductToSite';
+import Home from './pages/Home';
+import Footer from './components/layout/Footer';
 import Delivery from './components/Delivey';
-// import { config } from "dotenv"; למה לא עובד
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import Cart from './pages/Cart';
 
 
 

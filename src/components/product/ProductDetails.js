@@ -1,27 +1,19 @@
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import * as React from 'react';
-import { useState } from "react";
 import Button from '@mui/material/Button';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from "react-redux";
-import { addProductToOrderInState } from "../order/orderSlice";
-import "./productDetails.css";
+import { addProductToOrderInState } from "../../features/orderSlice";
+import "../../styles/productDetails.css";
 import baseUrl from "../../config";
 import useQty from "../../hooks/useQty";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-import MinCart from "../order/MinCart";
+import MinCart from "../cart/MinCart";
 
 
 const ProductDetails = () => {
@@ -29,7 +21,7 @@ const ProductDetails = () => {
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     let location = useLocation();
-    let { name, price, imgUrl, color, size, inSale, category, description } = location.state;
+    let { name, price, imgUrl, color, size, inSale, category, description } = location?.state;
     let dispatch = useDispatch();
     let { qty, removeQty, addQty } = useQty()
 

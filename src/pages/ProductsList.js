@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import ListItem from "./ListItem";
+import ListItem from "../components/product/ProductItem";
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -9,13 +9,13 @@ import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import Stack from '@mui/material/Stack';
 import { useDispatch, useSelector } from "react-redux";
-import { saveCurrentPageOnSiteToState, saveNumPagesToState } from "./productSlice";
+import { saveCurrentPageOnSiteToState, saveNumPagesToState } from "../features/productSlice";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import './list.css';
+import '../styles/productsList.css';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { Box, CircularProgress, LinearProgress, Button, Drawer, List } from "@mui/material";
-import { getNumPagesFromServer ,getAllProductsFromServer} from "../../services/productApi";
+import { getNumPagesFromServer ,getAllProductsFromServer} from "../services/productApi";
 
 
 

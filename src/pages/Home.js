@@ -1,9 +1,3 @@
-
-import livingRoom from "./assets/סלון ואוירה.jpg"
-import design from "./assets/העיצובים שלנו.jpg"
-import kitchen from "./assets/מטבח.jpg"
-import table from "./assets/שולחן ואירוח.jpg"
-import dishes from "./assets/כלים.jpg"
 import { border } from "@mui/system";
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
