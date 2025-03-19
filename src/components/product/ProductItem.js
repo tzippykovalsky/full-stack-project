@@ -10,7 +10,7 @@ import "../../styles/productItem.css";
 import baseUrl from '../../config';
 import { addProductToOrderInState } from '../../features/orderSlice';
 import MinCart from "../cart/MinCart";
-import { deleteProductFromServer } from '../../services/productApi';
+import { deleteProductFromServer } from '../../Api/productService';
 
 
 

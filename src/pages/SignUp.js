@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { addUserToServer, sendMailToServer } from '../services/userApi';
+import { addUserToServer, sendMailToServer } from '../Api/userService';
 import { Alert, AlertTitle, Slide, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
-  // const [showAlert, setShowAlert] = useState(false);
   let dispatch = useDispatch();
 
 
@@ -42,13 +41,6 @@ const SignUp = () => {
       Swal.fire({
               icon: 'success', title: 'נרשמת בהצלחה', showConfirmButton: false, timer: 1500
             })
-      // setShowAlert(true);
-
-      //   setTimeout(() => {
-      //       setShowAlert(false);
-
-      //   }, 2000);
-  
     } catch (err) {
       console.log(errors);
       alert(err.response.data);

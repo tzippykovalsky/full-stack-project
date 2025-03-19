@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/login.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { sendMailToServer, signInUserToServer } from '../services/userApi';
+import { sendMailToServer, signInUserToServer } from '../Api/userService';
 import { FilledInput, FormControl, IconButton, InputAdornment, InputLabel, Link, OutlinedInput, TextField, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
