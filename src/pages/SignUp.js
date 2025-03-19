@@ -2,7 +2,8 @@ import * as yup from 'yup';
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { addUserToServer, sendMailToServer } from '../services/userApi';
+
+import { addUserToServer, sendMailToServer } from '../Api/userService';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import CustomTextField from '../components/CustomTextField';
@@ -40,7 +41,6 @@ const SignUp = () => {
       Swal.fire({
               icon: 'success', title: 'נרשמת בהצלחה', showConfirmButton: false, timer: 1500
             })
-  
     } catch (err) {
       console.log(errors);
       alert(err.response.data);

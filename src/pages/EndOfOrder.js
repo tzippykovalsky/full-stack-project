@@ -9,8 +9,9 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import CustomTextField from '../components/CustomTextField';
-import { addOrderToServer } from "../services/orderApi";
-import { sendMailToServer } from '../services/userApi';
+import { addOrderToServer } from "../Api/orderService";
+import { sendMailToServer } from '../Api/emailService';
+
 
 const EndOfOrder = () => {
 

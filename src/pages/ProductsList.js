@@ -15,7 +15,7 @@ import '../styles/productsList.css';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { Box, CircularProgress, LinearProgress, Button, Drawer, List } from "@mui/material";
-import { getNumPagesFromServer ,getAllProductsFromServer} from "../services/productApi";
+import { getNumPagesFromServer ,getAllProductsFromServer} from "../Api/productService";
 
 
 
