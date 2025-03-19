@@ -32,13 +32,9 @@ function App() {
   let currentUser = useSelector((state) => state.user.currentUser)
 
   useEffect(() => {
-
-
-
     localStorageToRedux('myUser', loginState)
     localStorageToRedux('currentPages', saveCurrentPageOnSiteToState)
     localStorageToRedux('myCart', addArrProductToState)
-
   }, [])
 
 
@@ -46,9 +42,8 @@ function App() {
     <>
 
       <Navbar />
-
+      
       <Routes>
-
         <Route path='/all-products/' element={<ProductsList />} >
           <Route path='details/:item/' element={<ProductDetails />} />
         </Route>

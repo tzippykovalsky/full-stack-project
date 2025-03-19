@@ -1,36 +1,27 @@
+import React, { useEffect, useState } from 'react';
+import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+import { IconButton, Badge, Tooltip, Typography, ListItemIcon, MenuItem, Menu, Avatar, Box } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import SearchIcon from '@mui/icons-material/Search';
+import LoginIcon from '@mui/icons-material/Login';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
-
-import { googleLogout, useGoogleLogin } from '@react-oauth/google';
-
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-import React, { useEffect, useState } from 'react';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
-import SearchIcon from '@mui/icons-material/Search';
 import './Navbar.css';
 import Login from '../../pages/Login';
-import { useDispatch, useSelector } from 'react-redux';
 import { logoutState } from '../../features/userSlice';
+import { saveCurrentPageOnSiteToState } from '../../features/productSlice';
 import NavBarAdmin from './NavBarAdmin';
 import NavBarUser from './NavBarUser';
-import LoginIcon from '@mui/icons-material/Login';
-import { saveCurrentPageOnSiteToState } from '../../features/productSlice';
+
+
 const Navbar = () => {
 
 
@@ -145,11 +136,11 @@ const Navbar = () => {
 
                 {currentUser && currentUser.role == 2 ? <NavBarAdmin /> : <NavBarUser />}
                 <div style={{ "display": 'flex' }}>
-                    <Typography sx={{ color: "white", fontSize: "1vw", marginRight: "1vw" ,marginTop:"1vh"}}>  {currentUser && currentUser.userName ? currentUser.userName : ""}</Typography>
+                    <Typography sx={{ color: "white", fontSize: "1vw", marginRight: "1vw", marginTop: "1vh" }}>  {currentUser && currentUser.userName ? currentUser.userName : ""}</Typography>
                     {currentUser && currentUser.profile && currentUser.profile.picture ? (
                         <Avatar src={currentUser.profile.picture} />
                     ) : (
-                        currentUser &&<Avatar src="/broken-image.jpg" />
+                        currentUser && <Avatar src="/broken-image.jpg" />
                     )}
 
 
