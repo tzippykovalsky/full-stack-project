@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 import { deleteProductFromOrderInState } from "../../features/orderSlice";
-import baseUrl from "../../config";
+import baseUrl from "../../config/config";
 
 
 const MinCartItem = ({ oneOrder }) => {

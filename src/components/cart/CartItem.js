@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import { addProductToOrderInState, deleteProductFromOrderInState } from "../../features/orderSlice";
-import baseUrl from "../../config";
+import baseUrl from "../../config/config";
 
 
 

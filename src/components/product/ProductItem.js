@@ -7,7 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import "../../styles/productItem.css";
-import baseUrl from '../../config';
+import baseUrl from '../../config/config';
 import { addProductToOrderInState } from '../../features/orderSlice';
 import MinCart from "../cart/MinCart";
 import { deleteProductFromServer } from '../../Api/productService';

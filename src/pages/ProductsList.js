@@ -46,12 +46,12 @@ const ProductsList = () => {
     const fetchNumPages = async () => {
         try {
             let res = await getNumPagesFromServer(category);//הולך לשרת להביא מספר עמודים
-            let roundedNumPages = Math.ceil(res.data); // Round up the data
+            let roundedNumPages = Math.ceil(res?.data); // Round up the data
             dispatch(saveNumPagesToState(roundedNumPages))//ממלא את הסטייט הכללי 
         }
         catch (err) {
             console.log(err);
-            alert(err.response.data);
+            alert(err.response?.data);
         }
 
     }
@@ -68,7 +68,7 @@ const ProductsList = () => {
         }
         catch (err) {
             console.log(err);
-            alert(err.response.data);
+            alert(err.response?.data);
         }
     }
 
