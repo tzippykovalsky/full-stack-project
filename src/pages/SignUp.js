@@ -3,12 +3,14 @@ import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { addUserToServer, sendMailToServer } from '../Api/userService';
+import { addUserToServer } from '../Api/userService';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import CustomTextField from '../components/CustomTextField';
 import LoginGoogle from '../components/LoginGoogle';
 import Swal from 'sweetalert2';
+import { sendMailToServer } from '../Api/emailService';
+import { getSignUpEmail } from '../utils/email/emailMessages';
 
 const SignUp = () => {
 
@@ -36,11 +38,11 @@ const SignUp = () => {
       let res = await addUserToServer(data);
       console.log(data);
       dispatch(loginState(res.data))
-      await sendMailToServer({ to: `${data.email}`, subject: "שמחים על הצטרפותך לאתר", text: `${data.userName} תודה שיצרת חשבון באתר שלנו` })
+      await sendMailToServer(getSignUpEmail(data.email, data.userName));
 
       Swal.fire({
-              icon: 'success', title: 'נרשמת בהצלחה', showConfirmButton: false, timer: 1500
-            })
+        icon: 'success', title: 'נרשמת בהצלחה', showConfirmButton: false, timer: 1500
+      })
     } catch (err) {
       console.log(errors);
       alert(err.response.data);

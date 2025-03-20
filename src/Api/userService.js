@@ -21,9 +21,3 @@ export const signUpWithGoogleToServer = (user) => {
     return axios.post(`${baseUrl}/api/users/signUpWithGoogle`, user)
      
 }
-
-
-export const sendMailToServer = (mailDetails) => {
-    return axios.post(`${baseUrl}/api/users/sendMail`, mailDetails)
-     
-}

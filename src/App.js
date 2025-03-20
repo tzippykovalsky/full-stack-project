@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { loginState } from './features/userSlice';
 import OrdersList from './pages/OrdersList';
-import EndOfOrder from './pages/EndOfOrder';
 import { addArrProductToState } from './features/orderSlice';
 import { saveCurrentPageOnSiteToState } from './features/productSlice';
 import useLocalStorageToRedux from './hooks/useLocalStorageToRedux';
@@ -23,6 +22,7 @@ import Delivery from './components/Delivey';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 
 
 
@@ -57,7 +57,7 @@ function App() {
         <Route path='/login/' element={<Login />} />
         <Route path='/signup/' element={<SignUp />} />
         <Route path='/cart/' element={<Cart />} />
-        <Route path='/endOfOrder/' element={<EndOfOrder />} />
+        <Route path='/checkout/' element={<Checkout />} />
 
         <Route path='/addProductToSite/' element={
           <ProtectedRoute>

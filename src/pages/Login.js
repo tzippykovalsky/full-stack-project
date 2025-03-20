@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/login.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { sendMailToServer, signInUserToServer } from '../Api/userService';
-import { FilledInput, FormControl, IconButton, InputAdornment, InputLabel, Link, OutlinedInput, TextField, Typography } from '@mui/material';
+import {signInUserToServer } from '../Api/userService';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
@@ -51,10 +50,6 @@ const Login = () => {
       Swal.fire({
         icon: 'success', title: 'התחברת בהצלחה', showConfirmButton: false, timer: 1500
       })
-      // setShowAlert(true);
-      // setTimeout(() => {
-      //   setShowAlert(false);
-      // }, 2000);
     }
     catch (err) {
 
@@ -66,12 +61,6 @@ const Login = () => {
   }
   return (
     <>
-{/* 
-      <Slide direction="left" in={showAlert} mountOnEnter unmountOnExit >
-        <Alert severity="success" style={{ width: '20%', margin: '0 auto', textAlign: 'center', marginTop: "13vh" }}>
-          <AlertTitle> התחברת בהצלחה</AlertTitle>
-        </Alert>
-      </Slide> */}
       <div className="login-form">
         <h2 className='form-h2' style={{ marginTop: "26vh" }}>כניסה</h2>
         <h4 className='form-h4'>הזן את כתובת הדוא"ל והסיסמה לכניסה</h4>

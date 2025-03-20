@@ -13,7 +13,7 @@ const Cart = () => {
     navigate('/all-products/')
   }
   const goToEndOrder = () => {
-    navigate('/endOfOrder')
+    navigate('/checkout')
   }
 
   let ordersArr = useSelector((state) => state.order.ordersArr);

@@ -16,7 +16,7 @@ const MinCart = () => {
   let ordersArr = useSelector((state) => state.order.ordersArr);
 
   const goToEndOrder = () => {
-    navigate('/endOfOrder')
+    navigate('/checkout/')
   }
 
   const backToShop=()=>{

@@ -4,10 +4,11 @@ import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { loginState } from '../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMailToServer, signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../Api/userService';
-import { AlertTitle, Alert, Slide } from '@mui/material';
+import {signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../Api/userService';
 import google from '../googleIcon.png';
 import Swal from 'sweetalert2';
+import { sendMailToServer } from '../Api/emailService';
+import {  getSignUpEmail } from '../utils/email/emailMessages';
 
 function LoginGoogle({ flag }) {
     const [user, setUser] = useState([]);
@@ -71,7 +72,7 @@ function LoginGoogle({ flag }) {
                 icon: 'success', title: 'התחברת עם גוגל בהצלחה', showConfirmButton: false, timer: 1500
               })
             if (flag == 'signUp')
-                await sendMailToServer({ to: `${profile.email}`, subject: "שמחים על הצטרפותך לאתר", text: `${profile.name} תודה שיצרת חשבון באתר שלנו` })
+                await sendMailToServer(getSignUpEmail(profile.email,profile.name))
 
         }
         catch (err) {

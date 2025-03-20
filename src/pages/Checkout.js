@@ -11,13 +11,18 @@ import { loginState } from '../features/userSlice';
 import CustomTextField from '../components/CustomTextField';
 import { addOrderToServer } from "../Api/orderService";
 import { sendMailToServer } from '../Api/emailService';
+import { getCheckOutEmail } from '../utils/email/emailMessages';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { addArrProductToState } from '../features/orderSlice';
 
 
-const EndOfOrder = () => {
+const Checkout = () => {
 
     let currentUser = useSelector((state) => state.user.currentUser);
     let cart = useSelector((state) => state.order.ordersArr)
     let dispatch = useDispatch()
+    const navigate=useNavigate();
 
     let validationSchema = yup.object().shape({
 
@@ -46,12 +51,20 @@ const EndOfOrder = () => {
         try {
             let res = await addOrderToServer(data, currentUser.token);
             console.log(res);
-             await sendMailToServer({to:`${data.email}`,subject:"הרכישה בוצעה בהצלחה",text:`${data.userName} רכישתך בתאריך  ${convenientDate}בוצעה בהצלחה  צוות קזה בלה מודה לך על קניתך `})
+             await sendMailToServer(getCheckOutEmail(data.email,data.userName,convenientDate));
+
+                Swal.fire({
+                     icon: 'success', title: 'הרכישה בוצעה בהצלחה', showConfirmButton: false, timer: 1500
+                   })
+                   dispatch(addArrProductToState([]));
+                   navigate('/')
+                   
         }
         catch (err) {
             console.log(err);
             alert("נכשל");
         }
+        reset();
         localStorage.removeItem("myCart");
     }
 
@@ -134,4 +147,4 @@ const EndOfOrder = () => {
     </>);
 }
 
-export default EndOfOrder;
+export default Checkout;
