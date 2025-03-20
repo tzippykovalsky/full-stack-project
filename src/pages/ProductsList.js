@@ -10,7 +10,7 @@ import PaginationItem from '@mui/material/PaginationItem';
 import Stack from '@mui/material/Stack';
 import { useDispatch, useSelector } from "react-redux";
 import { saveCurrentPageOnSiteToState, saveNumPagesToState } from "../features/productSlice";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
 import '../styles/productsList.css';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -21,8 +21,9 @@ import { getNumPagesFromServer ,getAllProductsFromServer} from "../Api/productSe
 
 const ProductsList = () => {
 
+    let [searchParams]=useSearchParams();
+    let category = searchParams.get("category")||"ללא";
     let [arr, setArr] = useState([]);//המוצרים באתר לפי עמוד
-    let location = useLocation();
     let [search, setSearch] = useState("")
     let searchRef = useRef(null)
     let dispatch = useDispatch();
@@ -44,7 +45,7 @@ const ProductsList = () => {
 
     const fetchNumPages = async () => {
         try {
-            let res = await getNumPagesFromServer(location.state || "ללא");//הולך לשרת להביא מספר עמודים
+            let res = await getNumPagesFromServer(category);//הולך לשרת להביא מספר עמודים
             let roundedNumPages = Math.ceil(res.data); // Round up the data
             dispatch(saveNumPagesToState(roundedNumPages))//ממלא את הסטייט הכללי 
         }
@@ -60,8 +61,7 @@ const ProductsList = () => {
     //פונקציה שמביאה בפועל את המוצרים לפי עמוד
     const getProductToArr = async () => {
         try {
-            console.log(location.state || "ללא");
-            let res = await getAllProductsFromServer(currentPage, search, location.state || "ללא");
+            let res = await getAllProductsFromServer(currentPage, search,category);
 
             setArr(res?.data);
             console.log(res?.data);
@@ -86,13 +86,13 @@ const ProductsList = () => {
        //????????????????איפה להפעיל אותו 
         getProductToArr();
         fetchNumPages();
-    }, [search, currentPage, location.state, refreshFlag])
+    }, [search, currentPage, category, refreshFlag])
 
     useEffect(() => {
 
         dispatch(saveCurrentPageOnSiteToState(1))
 
-    }, [location.state])
+    }, [category])
 
     const [open, setOpen] = React.useState(false);
 
