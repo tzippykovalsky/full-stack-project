@@ -6,7 +6,7 @@ import { TextField } from '@mui/material';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import CustomTextField from '../components/CustomTextField';
 import { addOrderToServer } from "../Api/orderService";
@@ -20,7 +20,7 @@ import { addArrProductToState } from '../features/orderSlice';
 const Checkout = () => {
 
     let currentUser = useSelector((state) => state.user.currentUser);
-    let cart = useSelector((state) => state.order.ordersArr)
+    let cart = useSelector((state) => state.order.ordersArr, shallowEqual);//אין צורך לרנדר את הקומפוננטה בעת שינוי המערך
     let dispatch = useDispatch()
     const navigate=useNavigate();
 
@@ -49,7 +49,7 @@ const Checkout = () => {
         const currentDate = new Date();
         const convenientDate = currentDate.toISOString().split('T')[0];
         try {
-            let res = await addOrderToServer(data, currentUser.token);
+            let res = await addOrderToServer(data, currentUser?.token);
             console.log(res);
              await sendMailToServer(getCheckOutEmail(data.email,data.userName,convenientDate));
 
