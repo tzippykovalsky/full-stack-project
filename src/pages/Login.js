@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/login.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import {signInUserToServer } from '../Api/userService';
+import {signInUserToServer } from '../api/userService';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import { Visibility, VisibilityOff } from '@mui/icons-material';

@@ -3,13 +3,13 @@ import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-import { addUserToServer } from '../Api/userService';
+import { addUserToServer } from '../api/userService';
 import { useDispatch } from 'react-redux';
 import { loginState } from '../features/userSlice';
 import CustomTextField from '../components/CustomTextField';
 import LoginGoogle from '../components/LoginGoogle';
 import Swal from 'sweetalert2';
-import { sendMailToServer } from '../Api/emailService';
+import { sendMailToServer } from '../api/emailService';
 import { getSignUpEmail } from '../utils/email/emailMessages';
 
 const SignUp = () => {

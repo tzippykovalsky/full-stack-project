@@ -9,7 +9,7 @@ import "../../styles/productDetails.css";
 import baseUrl from "../../config/config";
 import useQty from "../../hooks/useQty";
 import MinCart from "../cart/MinCart";
-import { getProductByIdFromServer } from '../../Api/productService';
+import { getProductByIdFromServer } from '../../api/productService';
 
 const ProductDetails = () => {
     const navigate = useNavigate();

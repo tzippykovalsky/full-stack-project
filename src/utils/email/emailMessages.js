@@ -1,3 +1,5 @@
+import { getAdminEmailFromServer } from "../../api/emailService";
+
 export const getSignUpEmail = (to, name) => ({
     to,
     subject: "ברוך הבא! חשבונך נוצר בהצלחה 🎉",
@@ -34,3 +36,35 @@ export const getCheckOutEmail = (to, name, convenientDate) => ({
 צוות קזה בלה
 `
 });
+
+
+export const getUnauthorizedAccessEmail = async (email, ip, attemptedPage) => {
+    let to;
+    try {
+        let res = await getAdminEmailFromServer();
+        to=res.data.email;
+        console.log(to);
+        
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+    return ({
+
+        to, // admin email
+        subject: "התראה: ניסיון גישה לא מורשה 🚨",
+        text: `שלום, 
+
+זוהה ניסיון גישה לא מורשה למערכת.
+📌 פרטי הניסיון:
+- כתובת מייל: ${email || "לא ידועה"}
+- כתובת IP: ${ip || "לא ידועה"}
+- דף שניסו לגשת אליו: ${attemptedPage}
+
+אם אינך מזהה ניסיון זה, מומלץ לבדוק את אבטחת המערכת.
+
+בברכה,
+צוות האבטחה`
+    });
+}

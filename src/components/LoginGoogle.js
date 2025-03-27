@@ -4,10 +4,10 @@ import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { loginState } from '../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../Api/userService';
+import {signInUserToServer, signInWithGoogleToServer, signUpWithGoogleToServer } from '../api/userService';
 import google from '../googleIcon.png';
 import Swal from 'sweetalert2';
-import { sendMailToServer } from '../Api/emailService';
+import { sendMailToServer } from '../api/emailService';
 import {  getSignUpEmail } from '../utils/email/emailMessages';
 
 function LoginGoogle({ flag }) {

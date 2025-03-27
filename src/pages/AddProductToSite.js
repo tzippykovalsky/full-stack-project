@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { TextField, Box, FormControl, InputLabel, MenuItem, Select, FormControlLabel, Checkbox, Button, AlertTitle, Alert, Slide } from '@mui/material';
-import { addProductToServer } from '../Api/productService';
+import { addProductToServer } from '../api/productService';
 import { useSelector } from 'react-redux';
 import CustomTextField from '../components/CustomTextField';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';

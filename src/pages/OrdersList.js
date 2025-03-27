@@ -5,7 +5,7 @@ import { Box, Paper, Typography, Button, Table, TableBody, TableCell, TableConta
 import Swal from "sweetalert2";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'; 
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty'; 
-import { updateOrderInServer ,getAllOrdersFromServer} from "../Api/orderService";
+import { updateOrderInServer ,getAllOrdersFromServer} from "../api/orderService";
 
 const OrdersList = () => {
     const [ordersArr, setOrdersArr] = useState([]);
